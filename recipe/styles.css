@@ -47,3 +47,43 @@ table {
 	border-spacing: 0;
 }
 /* end reset */
+
+
+/* --- Basic Display --- */
+
+body {
+  border: 4px solid red;
+  margin: 35px;
+  padding: 100px;
+}
+
+div {
+  margin: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+
+h2, 
+h3, 
+h4 {
+  margin-bottom: 20px;
+}
+
+ul, 
+ol, 
+p {
+  line-height: 1.5em;
+}
+
+ul {
+  list-style-type: circle;
+  margin-left: 35px;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 35px;
+}
