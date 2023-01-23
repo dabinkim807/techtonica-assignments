@@ -59,6 +59,8 @@ body {
 	font-family: 'Krub', sans-serif;
 	font-weight: 300;
 	font-size: 15px;
+	color: hsl(0, 0%, 56%);
+	background-color: hsl(340, 100%, 97%);
 }
 
 
