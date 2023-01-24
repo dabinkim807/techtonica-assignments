@@ -52,10 +52,11 @@ table {
 /* --- Basic Display --- */
 
 body {
-  border: 4px solid hsl(0, 85%, 76%);
+	border: 4px solid hsl(0, 85%, 76%);
 	max-width: 100%;
-  margin: 35px;
-  padding: 70px;
+	/* height: 975px; */
+  margin: 5%;
+  padding: 50px;
 	font-family: 'Krub', sans-serif;
 	font-weight: 300;
 	font-size: 15px;
@@ -67,7 +68,8 @@ body {
 /* --- Main Content --- */
 
 div {
-  margin: 30px;
+  margin: auto;
+	width: 90%;
 }
 
 h2, 
@@ -108,6 +110,28 @@ a {
 	color: hsl(240, 25%, 65%);
 }
 
+/* .column {
+	float: left;
+	width: 50%;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+} */
+
+.row {
+	display: inline-flex;
+	height: 100px;
+	column-gap: 40px;
+	
+}
+
+.row > div {
+	flex: auto;
+}
+
 
 /* --- Media --- */
 
@@ -118,7 +142,7 @@ a {
 }
 
 img {
-  width: 60%;
+  width: 100%;
 	border-radius: 25px;
-	margin: 15px 0 15px 0;
+	margin: 15px 0;
 }
