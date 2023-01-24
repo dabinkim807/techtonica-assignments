@@ -54,7 +54,7 @@ table {
 body {
 	border: 4px solid hsl(0, 85%, 76%);
 	max-width: 100%;
-	/* height: 975px; */
+	height: 975px; /* not the best method, not very responsive and doesn't look great when window is smaller */
   margin: 5%;
   padding: 50px;
 	font-family: 'Krub', sans-serif;
