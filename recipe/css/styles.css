@@ -65,7 +65,7 @@ body {
 body > div {
 	border: 4px solid hsl(0, 85%, 76%);
 	margin: 4.5%;
-	height: 1130px; not the best method, not very responsive and doesn't look great when window is smaller
+	height: 1130px; /* --- not the best method, not very responsive and doesn't look great when window is smaller --- */
 }
 
 
