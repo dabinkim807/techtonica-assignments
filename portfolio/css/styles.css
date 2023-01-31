@@ -58,9 +58,20 @@ body {
 	max-width: 100%;
 }
 
-/* --- Header & Footer --- */
+/* --- Header --- */
 
-
+header nav {
+	text-align: right;
+}
+header nav li {
+	display: inline-block;
+	margin: 0 10px;
+	vertical-align: top;
+}
+h1 {
+	font-size: 600%;
+	margin: 200px 20px 20px 20px;
+}
 
 /* --- Main Content --- */
 
