@@ -52,7 +52,11 @@ table {
 
 /* --- Basic Display --- */
 
-
+body {
+	padding: 20px;
+	line-height: 22px;
+	max-width: 100%;
+}
 
 /* --- Header & Footer --- */
 
