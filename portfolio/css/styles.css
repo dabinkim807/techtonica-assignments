@@ -75,7 +75,9 @@ h1 {
 
 /* --- Footer --- */
 
-
+footer nav {
+	margin: 80px 20px;
+}
 
 /* --- Main Content --- */
 
