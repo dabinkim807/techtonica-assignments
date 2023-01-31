@@ -79,6 +79,12 @@ h1 {
 
 /* --- Main Content --- */
 
-
+h2 {
+	font-size: 230%;
+	margin: 35px 25px;
+}
+p {
+	margin: 20px;
+}
 
 /* --- Media --- */
