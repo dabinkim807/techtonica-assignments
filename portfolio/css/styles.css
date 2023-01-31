@@ -113,14 +113,44 @@ img {
 	
 }
 
-/* Landscape orientation */
-@media (orientation: landscape) {
-	
-}
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 	
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) {
+	body {
+		text-align: left;
+	}
+	header nav {
+		text-align: right;
+	}
+	header nav li:last-child {
+		margin-right: 50px;
+	}
+	section {
+		margin: 0 5px 0 20px;
+	}
+	h1 {
+		margin-top: 350px;
+		font-size: 700%;
+	}
+	h2 {
+		font-size: 300%;
+		margin-top: 60px;
+	}
+	p {
+		margin-top: 70px;
+	}
+	img {
+		float: right;
+		width: 55%;
+		margin: -400px 30px 0 50px;
+	}
+	footer nav li {
+		display: block;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
