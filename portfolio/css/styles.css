@@ -59,6 +59,7 @@ body {
 	text-align: center;
 }
 
+
 /* --- Header --- */
 
 header nav li {
@@ -71,6 +72,7 @@ h1 {
 	margin: 200px 20px 20px 20px;
 }
 
+
 /* --- Footer --- */
 
 footer nav {
@@ -82,6 +84,7 @@ footer nav li {
 	margin: 0 20px;
 }
 
+
 /* --- Main Content --- */
 
 h2 {
@@ -92,6 +95,7 @@ p {
 	margin: 20px;
 }
 
+
 /* --- Media --- */
 
 img {
@@ -99,4 +103,32 @@ img {
 	display: block;
 	border-radius: 50%;
 	margin: 30px auto;
+}
+
+
+/* --- Media Queries --- */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) {
+	
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }
