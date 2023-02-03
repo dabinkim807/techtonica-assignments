@@ -57,6 +57,7 @@ body {
 	line-height: 22px;
 	max-width: 100%;
 	text-align: center;
+	font-family: 'Raleway', sans-serif;
 }
 
 
@@ -66,9 +67,11 @@ header nav li {
 	display: inline-block;
 	margin: 0 12px;
 	vertical-align: top;
+	font-size: 20px;
 }
 h1 {
 	font-size: 350%;
+	font-weight: 500;
 	margin: 200px 20px 20px 20px;
 }
 
@@ -82,6 +85,7 @@ footer nav li {
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 20px;
+	font-size: 17px;
 }
 a {
 	text-decoration: underline;
@@ -93,16 +97,18 @@ a {
 
 h2 {
 	font-size: 140%;
+	font-weight: 300;
 	margin: 13px 25px 40px 25px;
 }
 p {
 	margin: 20px;
+	line-height: 28px;
 }
 form {
 	border-radius: 5px;
 	background-color: #f2f2f2;
 	padding: 20px;
-	margin: 25px 20px;
+	margin: 30px 20px;
 	width: 78%;
 }
 .form-row {
@@ -155,6 +161,9 @@ img {
 	header nav {
 		text-align: right;
 	}
+	header nav li {
+		margin: 10px 19px 0 19px;
+	}
 	header nav li:last-child {
 		margin-right: 50px;
 	}
@@ -189,7 +198,7 @@ img {
 		margin: 30px 0 30px 70px;
 	}
 	footer {
-		margin-top: -12%;
+		margin-top: -13%;
 	}
 	footer nav li {
 		display: block;
