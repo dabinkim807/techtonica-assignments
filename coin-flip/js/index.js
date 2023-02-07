@@ -35,4 +35,9 @@ document.getElementById("form").addEventListener("submit", (event) => {
 // don't need an event listener for the reset/try again button; reset function built into button type reset
   // after adding results image/video, may want to include that with reset
 
+  
 // add function to randomize result
+
+function randomNumGenerator(heads=0, tails=1) {
+  return Math.floor(Math.random() * (tails - heads + 1) + heads); // The maximum is inclusive and the minimum is inclusive
+}
