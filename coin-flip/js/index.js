@@ -22,11 +22,14 @@ document.getElementById("form").addEventListener("submit", (event) => {
     message = "*Please choose either Heads or Tails to start the game.";
     msgError.innerHTML = message;
     errorMsg.appendChild(msgError);
-  } 
+  // if heads is selected, log "heads"
+  } else if (heads) {
+    console.log("heads");
+  // if tails is selected, log "tails"
+  } else {
+    console.log("tails");
+  }
   
-  // log user input
-  console.log(heads.checked);
-  console.log(tails.checked);
 });
 
 // add an event listener to the reset/try again button
