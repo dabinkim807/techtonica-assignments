@@ -32,7 +32,6 @@ document.getElementById("form").addEventListener("submit", (event) => {
   
 });
 
-// add an event listener to the reset/try again button
-
+// don't need an event listener for the reset/try again button; reset function built into button type reset
 
 // add function to randomize result
