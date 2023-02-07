@@ -19,7 +19,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
 
   // check if both radio buttons are unselected
   if (heads === false && tails === false) {
-    message = "Please choose either Heads or Tails to start the game";
+    message = "*Please choose either Heads or Tails to start the game.";
     msgError.innerHTML = message;
     errorMsg.appendChild(msgError);
   } 
