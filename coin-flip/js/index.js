@@ -22,22 +22,34 @@ document.getElementById("form").addEventListener("submit", (event) => {
     message = "*Please choose either Heads or Tails to start the game.";
     msgError.innerHTML = message;
     errorMsg.appendChild(msgError);
-  // if heads is selected, log "heads"
+  // if heads is selected, log user input "heads" and game result
   } else if (heads) {
-    console.log("heads");
-  // if tails is selected, log "tails"
+    console.log(`You selected Heads`);
+    let result = randomNumGenerator();
+    console.log(`Result: ${result}`);
+  // if tails is selected, log user input "tails" and game result
   } else {
-    console.log("tails");
+    console.log(`You selected Tails`);
+    let result = randomNumGenerator();
+    console.log(`Result: ${result}`);
   }
   
 });
 
+
 // don't need an event listener for the reset/try again button; reset function built into button type reset
   // after adding results image/video, may want to include that with reset
 
-  
+
 // add function to randomize result
 
 function randomNumGenerator(heads=0, tails=1) {
-  return Math.floor(Math.random() * (tails - heads + 1) + heads); // The maximum is inclusive and the minimum is inclusive
+  // get a random number either 0 or 1
+  let answer = Math.floor(Math.random() * (tails - heads + 1) + heads); // The maximum is inclusive and the minimum is inclusive
+  // if answer is equal to 1, return "tails"
+  if (answer) {
+    return "Tails";
+  }
+  // if answer is equal to 0, return "heads"
+  return "Heads";
 }
