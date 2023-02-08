@@ -1,27 +1,29 @@
 
+// we want to see the special messages right near the respective field where the trigger event is happening
+const divErrors = document.getElementsByClassName("error");
+let errorMsg = divErrors[0]; 
+
+const divResults = document.getElementsByClassName("resultMessage");
+let resultMsg = divResults[0];
+
+// set up to print a message inside the div when user submits blank form
+let msgError = document.createElement("span");
+let message = "";
+
+let msgResult = document.createElement("span");
+let userMsg = "";
+
+
+
 //// add an event listener to the submit/flip button
 
 document.getElementById("form").addEventListener("submit", (event) => {
   // prevent the default handling of errors, so we can handle it explicitly
   event.preventDefault();
-
+  
   // grab my user inputs
   let heads = document.getElementById("heads").checked;
   let tails = document.getElementById("tails").checked;
-
-  // we want to see the special messages right near the respective field where the trigger event is happening
-  const divErrors = document.getElementsByClassName("error");
-  let errorMsg = divErrors[0]; 
-
-  const divResults = document.getElementsByClassName("resultMessage");
-  let resultMsg = divResults[0];
-
-  // set up to print a message inside the div when user submits blank form
-  let msgError = document.createElement("span");
-  let message = "";
-  
-  let msgResult = document.createElement("span");
-  let userMsg = "";
 
   // check if both radio buttons are unselected
   if (!heads && !tails) {
@@ -52,6 +54,10 @@ document.getElementById("form").addEventListener("submit", (event) => {
 
     // if result is tails and user chose tails, send user congrats message
     if (result === "Tails") {
+      userMsg = "Congrats!!! You Won!";
+      msgResult.innerHTML = userMsg;
+      resultMsg.appendChild(msgResult);
+    } else {
       userMsg = "Oh No!! You Lost...";
       msgResult.innerHTML = userMsg;
       resultMsg.appendChild(msgResult);
@@ -68,6 +74,8 @@ document.getElementById("form").addEventListener("reset", (event) => {
 
   // change image back to default
   document.getElementById("myImg").src = "images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
+
+  // change divError and divResults back to nothing??
 
 });
 
