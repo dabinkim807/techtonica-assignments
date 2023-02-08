@@ -29,7 +29,6 @@ document.getElementById("form").addEventListener("submit", (event) => {
   if (!heads && !tails) {
     message = "*Please choose either Heads or Tails to start the game.";
     msgError.innerHTML = message;
-    errorMsg.appendChild(msgError);
   // if heads is selected, log user input "heads" and game result
   } else if (heads) {
     console.log("You selected Heads");
@@ -63,6 +62,8 @@ document.getElementById("form").addEventListener("submit", (event) => {
       resultMsg.appendChild(msgResult);
     }
   }
+  // make message only appear once (instead of appending) if user keeps submitting blank form
+  errorMsg.appendChild(msgError);
   
 });
 
@@ -75,7 +76,7 @@ document.getElementById("form").addEventListener("reset", (event) => {
   // change image back to default
   document.getElementById("myImg").src = "images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
 
-  // change divError and divResults back to nothing
+  // remove msgError and msgResult
   msgError.remove();
   msgResult.remove();
 });
