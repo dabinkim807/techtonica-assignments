@@ -9,13 +9,19 @@ document.getElementById("form").addEventListener("submit", (event) => {
   let heads = document.getElementById("heads").checked;
   let tails = document.getElementById("tails").checked;
 
-  // we want to see the error message right beneath the respective field where the error is happening
+  // we want to see the special messages right near the respective field where the trigger event is happening
   const divErrors = document.getElementsByClassName("error");
   let errorMsg = divErrors[0]; 
+
+  const divResults = document.getElementsByClassName("resultMessage");
+  let resultMsg = divResults[0];
 
   // set up to print a message inside the div when user submits blank form
   let msgError = document.createElement("span");
   let message = "";
+  
+  let msgResult = document.createElement("span");
+  let userMsg = "";
 
   // check if both radio buttons are unselected
   if (!heads && !tails) {
@@ -24,14 +30,32 @@ document.getElementById("form").addEventListener("submit", (event) => {
     errorMsg.appendChild(msgError);
   // if heads is selected, log user input "heads" and game result
   } else if (heads) {
-    console.log(`You selected Heads`);
+    console.log("You selected Heads");
     let result = getResults();
     console.log(`Result: ${result}`);
+
+    // if result is heads and user chose heads, send user congrats message
+    if (result === "Heads") {
+      userMsg = "Congrats!!! You Won!";
+      msgResult.innerHTML = userMsg;
+      resultMsg.appendChild(msgResult);
+    } else {
+      userMsg = "Oh No!! You Lost...";
+      msgResult.innerHTML = userMsg;
+      resultMsg.appendChild(msgResult);
+    }
   // if tails is selected, log user input "tails" and game result
   } else {
-    console.log(`You selected Tails`);
+    console.log("You selected Tails");
     let result = getResults();
     console.log(`Result: ${result}`);
+
+    // if result is tails and user chose tails, send user congrats message
+    if (result === "Tails") {
+      userMsg = "Oh No!! You Lost...";
+      msgResult.innerHTML = userMsg;
+      resultMsg.appendChild(msgResult);
+    }
   }
   
 });
