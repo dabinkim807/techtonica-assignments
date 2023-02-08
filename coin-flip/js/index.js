@@ -75,8 +75,9 @@ document.getElementById("form").addEventListener("reset", (event) => {
   // change image back to default
   document.getElementById("myImg").src = "images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
 
-  // change divError and divResults back to nothing??
-
+  // change divError and divResults back to nothing
+  msgError.remove();
+  msgResult.remove();
 });
 
 
