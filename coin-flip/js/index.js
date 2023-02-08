@@ -1,5 +1,5 @@
 
-// add an event listener to the submit/flip button
+//// add an event listener to the submit/flip button
 
 document.getElementById("form").addEventListener("submit", (event) => {
   // prevent the default handling of errors, so we can handle it explicitly
@@ -37,11 +37,18 @@ document.getElementById("form").addEventListener("submit", (event) => {
 });
 
 
-// don't need an event listener for the reset/try again button; reset function built into button type reset
-  // after adding results image/video, may want to include that with reset
+//// add an event listener to the reset/play again button
+
+document.getElementById("form").addEventListener("reset", (event) => {
+  // I don't think I need to prevent default in this case? I still want the form to clear
+
+  // change image back to default
+  document.getElementById("myImg").src = "images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
+
+});
 
 
-// add function to randomize result
+//// add function to randomize result
 
 function getResults(heads=0, tails=1) {
   // get a random number either 0 or 1
