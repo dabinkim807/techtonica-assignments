@@ -25,12 +25,12 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // if heads is selected, log user input "heads" and game result
   } else if (heads) {
     console.log(`You selected Heads`);
-    let result = randomNumGenerator();
+    let result = getResults();
     console.log(`Result: ${result}`);
   // if tails is selected, log user input "tails" and game result
   } else {
     console.log(`You selected Tails`);
-    let result = randomNumGenerator();
+    let result = getResults();
     console.log(`Result: ${result}`);
   }
   
@@ -43,13 +43,15 @@ document.getElementById("form").addEventListener("submit", (event) => {
 
 // add function to randomize result
 
-function randomNumGenerator(heads=0, tails=1) {
+function getResults(heads=0, tails=1) {
   // get a random number either 0 or 1
   let answer = Math.floor(Math.random() * (tails - heads + 1) + heads); // The maximum is inclusive and the minimum is inclusive
   // if answer is equal to 1, return "tails"
   if (answer) {
+    document.getElementById("myImg").src = "images/tails_coin_crop.jpg";
     return "Tails";
   }
   // if answer is equal to 0, return "heads"
+  document.getElementById("myImg").src = "images/head_coin_crop.jpg";
   return "Heads";
 }
