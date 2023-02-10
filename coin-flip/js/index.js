@@ -13,6 +13,9 @@ let message = "";
 let msgResult = document.createElement("span");
 let userMsg = "";
 
+// initialize scores to 0
+let wins = 0;
+let losses = 0;
 
 
 //// add an event listener to the submit/flip button
@@ -40,10 +43,14 @@ document.getElementById("form").addEventListener("submit", (event) => {
       userMsg = "Congrats!!! You Won!";
       msgResult.innerHTML = userMsg;
       resultMsg.appendChild(msgResult);
+      wins++;
+      updateScore();
     } else {
       userMsg = "Oh No!! You Lost...";
       msgResult.innerHTML = userMsg;
       resultMsg.appendChild(msgResult);
+      losses++;
+      updateScore();
     }
   // if tails is selected, log user input "tails" and game result
   } else {
@@ -56,10 +63,14 @@ document.getElementById("form").addEventListener("submit", (event) => {
       userMsg = "Congrats!!! You Won!";
       msgResult.innerHTML = userMsg;
       resultMsg.appendChild(msgResult);
+      wins++;
+      updateScore();
     } else {
       userMsg = "Oh No!! You Lost...";
       msgResult.innerHTML = userMsg;
       resultMsg.appendChild(msgResult);
+      losses++;
+      updateScore();
     }
   }
   // make message only appear once (instead of appending) if user keeps submitting blank form
@@ -95,4 +106,15 @@ function getResults(heads=0, tails=1) {
   // if answer is equal to 0, return "heads"
   document.getElementById("myImg").src = "images/head_coin_crop.jpg";
   return "Heads";
+}
+
+
+//// add function to increase score on scoreboard (show current score)
+
+function updateScore() {
+  const scoreWin = document.getElementById("scoreWin");
+  const scoreLose = document.getElementById("scoreLose");
+
+  scoreWin.textContent = `Wins: ${wins}`;
+  scoreLose.textContent =  `Losses: ${losses}`;
 }
