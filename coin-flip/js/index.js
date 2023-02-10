@@ -100,11 +100,11 @@ function getResults(heads=0, tails=1) {
   let answer = Math.floor(Math.random() * (tails - heads + 1) + heads); // The maximum is inclusive and the minimum is inclusive
   // if answer is equal to 1, return "tails"
   if (answer) {
-    document.getElementById("myImg").src = "images/tails_coin_crop.jpg";
+    document.getElementById("myImg").src = "images/tails_coin_crop_border.jpg";
     return "Tails";
   }
   // if answer is equal to 0, return "heads"
-  document.getElementById("myImg").src = "images/head_coin_crop.jpg";
+  document.getElementById("myImg").src = "images/head_coin_crop_border.jpg";
   return "Heads";
 }
 

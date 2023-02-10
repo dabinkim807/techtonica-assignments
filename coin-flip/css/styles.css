@@ -57,3 +57,13 @@ table {
 
 
 /* --- Media --- */
+
+.imgbox {
+  width: 100%;
+}
+img {
+  width: 35%;
+  margin: 30px auto;
+  border-radius: 15px;
+  border: solid lightgray 3px;
+}
