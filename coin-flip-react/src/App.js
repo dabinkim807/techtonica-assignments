@@ -1,16 +1,21 @@
 import './App.css';
 import defaultImage from "./images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
+import { useState } from "react";
+
 
 function App() {
 
+  const [side, setSide] = useState("");
 
   function onChangeValue(side) {
-    console.log(side);
+    setSide(side);
   }
 
   function onClickButton(event) {
     event.preventDefault();
+
     console.log("clicked");
+    console.log(side);
   }
 
   return (
