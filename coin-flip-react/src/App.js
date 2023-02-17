@@ -1,6 +1,14 @@
 import './App.css';
 
-function App() { 
+function App() {
+
+
+  function onChangeValue(side) {
+    console.log(side);
+  }
+
+
+
   return (
     <div>
       <h1>Coin Flip Game</h1>
@@ -9,7 +17,7 @@ function App() {
           <h2>Result:</h2>
           <div class="resultMessage"></div>
           <div class="imgbox">
-            <img id="myImg" src="images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg" alt="thumb flipping coin into air"/>
+            <img id="myImg" src="images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg" alt="thumb flipping coin into air" />
           </div>
         </section>
         <section>
@@ -18,10 +26,10 @@ function App() {
             <div class="error"></div>
 
             <div>
-              <input id="heads" name="coin" type="radio"></input>
+              <input id="heads" name="coin" type="radio" onChange={() => onChangeValue("heads")}></input>
               <label for="heads" class="radio-left">Heads</label>
-      
-              <input id="tails" name="coin" type="radio"></input>
+
+              <input id="tails" name="coin" type="radio" onChange={() => onChangeValue("tails")}></input>
               <label for="tails" class="radio-left">Tails</label>
             </div>
 
