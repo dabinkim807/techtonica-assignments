@@ -6,8 +6,10 @@ import { useState } from "react";
 function App() {
 
   const [side, setSide] = useState("");
-  const [score, setScore] = useState(0);
+  const [scoreWin, setScoreWin] = useState(0);
+  const [scoreLose, setScoreLose] = useState(0);
   const [errorHidden, setErrorHidden] = useState(true);
+  const [result, setResult] = useState("");
 
   function onClickButton(event) {
     event.preventDefault();
@@ -18,7 +20,14 @@ function App() {
 
     setErrorHidden(true);
 
-
+    let flip = Math.random() > 0.5 ? "heads" : "tails";
+    if (side === flip) {
+      setResult("win");
+      setScoreWin(scoreWin + 1);
+    } else {
+      setResult("lose");
+      setScoreLose(scoreLose + 1);
+    }
   }
 
   function onResetClick(event) {
@@ -43,6 +52,8 @@ function App() {
           <h2>Your Guess:</h2>
           <form id="form">
             <div class="error" hidden={errorHidden}>*Please choose either Heads or Tails to start the game.</div>
+            <div class="result" hidden={result !== "win"}>Congrats!!! You Won!</div>
+            <div class="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
 
             <div>
               <input id="heads" name="coin" type="radio" checked={side === "heads"} onChange={() => setSide("heads")}></input>
@@ -63,10 +74,10 @@ function App() {
         <h2>Scoreboard</h2>
         <div class="scoreRow">
           <div>
-            <span id="scoreWin">Wins: 0</span>
+            <span id="scoreWin">Wins: {scoreWin}</span>
           </div>
           <div>
-            <span id="scoreLose">Losses: 0</span>
+            <span id="scoreLose">Losses: {scoreLose}</span>
           </div>
         </div>
       </section>
