@@ -46,7 +46,10 @@ function App() {
       <section class="row">
         <section>
           <h2>Result:</h2>
-          <div class="resultMessage"></div>
+          <div class="resultMessage">
+            <div class="result" hidden={result !== "win"}>Congrats!!! You Won!</div>
+            <div class="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
+          </div>
           <div class="imgbox">
             <img id="myImg" src={defaultImage} alt="thumb flipping coin into air" />
           </div>
@@ -55,8 +58,6 @@ function App() {
           <h2>Your Guess:</h2>
           <form id="form">
             <div class="error" hidden={errorHidden}>*Please choose either Heads or Tails to start the game.</div>
-            <div class="result" hidden={result !== "win"}>Congrats!!! You Won!</div>
-            <div class="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
 
             <div>
               <input id="heads" name="coin" type="radio" checked={side === "heads"} onChange={() => setSide("heads")}></input>
