@@ -3,6 +3,7 @@ import defaultImage from "./images/depositphotos_125165712-stock-illustration-bu
 import tailsImage from "./images/tails_coin_crop_border.jpg";
 import headsImage from "./images/head_coin_crop_border.jpg";
 import { useState } from "react";
+// import Result from "./components/Result";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [result, setResult] = useState("");
   const [flip, setFlip] = useState("");
   const [resultMsg, setResultMsg] = useState("");
+
 
   function onClickButton(event) {
     event.preventDefault();
@@ -53,6 +55,7 @@ function App() {
   return (
     <div>
       <h1>Coin Flip Game</h1>
+      {/* <Result /> */}
       <section className="row">
         <section>
           <h2>Result: {resultMsg}</h2> 
@@ -88,9 +91,11 @@ function App() {
         <div className="scoreRow">
           <div>
             <span id="scoreWin">Wins: {scoreWin}</span>
+            {/* <span id="scoreWin">Wins: 0</span> */}
           </div>
           <div>
             <span id="scoreLose">Losses: {scoreLose}</span>
+            {/* <span id="scoreLose">Losses: 0</span> */}
           </div>
         </div>
       </section>
