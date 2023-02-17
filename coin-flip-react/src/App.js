@@ -34,6 +34,9 @@ function App() {
     event.preventDefault();
     setSide("");
     setErrorHidden(true);
+    setResult("");
+    setScoreWin(0);
+    setScoreLose(0);
   }
 
 
