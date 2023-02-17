@@ -49,30 +49,30 @@ function App() {
   return (
     <div>
       <h1>Coin Flip Game</h1>
-      <section class="row">
+      <section className="row">
         <section>
           <h2>Result:</h2>
-          <div class="resultMessage">
-            <div class="result" hidden={result !== "win"}>Congrats!!! You Won!</div>
-            <div class="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
+          <div className="resultMessage">
+            <div className="result" hidden={result !== "win"}>Congrats!!! You Won!</div>
+            <div className="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
           </div>
-          <div class="imgbox">
-            <img id="myImg" src={defaultImage} hidden={flip !== ""} alt="thumb flipping coin into air" />
-            <img id="myImg" src={headsImage} hidden={flip !== "heads"} alt="thumb flipping coin into air" />
-            <img id="myImg" src={tailsImage} hidden={flip !== "tails"} alt="thumb flipping coin into air" />
+          <div className="imgbox">
+            <img id="myImg" src={defaultImage} style={{ display: flip !== "" ? "none" : "block" }} alt="thumb flipping coin into air" />
+            <img id="myImg" src={headsImage} style={{ display: flip !== "heads" ? "none" : "block" }} alt="face of gold coin" />
+            <img id="myImg" src={tailsImage} style={{ display: flip !== "tails" ? "none" : "block" }} alt="tails of gold coin" />
           </div>
         </section>
         <section>
           <h2>Your Guess:</h2>
           <form id="form">
-            <div class="error" hidden={errorHidden}>*Please choose either Heads or Tails to start the game.</div>
+            <div className="error" hidden={errorHidden}>*Please choose either Heads or Tails to start the game.</div>
 
             <div>
               <input id="heads" name="coin" type="radio" checked={side === "heads"} onChange={() => setSide("heads")}></input>
-              <label for="heads" class="radio-left">Heads</label>
+              <label htmlFor="heads" className="radio-left">Heads</label>
 
               <input id="tails" name="coin" type="radio" checked={side === "tails"} onChange={() => setSide("tails")}></input>
-              <label for="tails" class="radio-left">Tails</label>
+              <label htmlFor="tails" className="radio-left">Tails</label>
             </div>
 
             <div>
@@ -82,9 +82,9 @@ function App() {
           </form>
         </section>
       </section>
-      <section class="scoreboard">
+      <section className="scoreboard">
         <h2>Scoreboard</h2>
-        <div class="scoreRow">
+        <div className="scoreRow">
           <div>
             <span id="scoreWin">Wins: {scoreWin}</span>
           </div>
