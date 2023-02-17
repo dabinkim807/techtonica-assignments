@@ -98,8 +98,8 @@ form > div {
   margin: 20px 10px;
 }
 .error {
-  font-size: 12px;
-  margin: 0;
+  font-size: 16px;
+  margin: 5px;
 }
 #flip {
   margin-right: 30px;

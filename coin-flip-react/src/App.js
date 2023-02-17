@@ -13,6 +13,7 @@ function App() {
   const [errorHidden, setErrorHidden] = useState(true);
   const [result, setResult] = useState("");
   const [flip, setFlip] = useState("");
+  const [resultMsg, setResultMsg] = useState("");
 
   function onClickButton(event) {
     event.preventDefault();
@@ -28,9 +29,11 @@ function App() {
 
     if (side === coinFlip) {
       setResult("win");
+      setResultMsg("You Won!");
       setScoreWin(scoreWin + 1);
     } else {
       setResult("lose");
+      setResultMsg("You Lost...");
       setScoreLose(scoreLose + 1);
     }
   }
@@ -43,6 +46,7 @@ function App() {
     setScoreWin(0);
     setScoreLose(0);
     setFlip("");
+    setResultMsg("");
   }
 
 
@@ -51,15 +55,12 @@ function App() {
       <h1>Coin Flip Game</h1>
       <section className="row">
         <section>
-          <h2>Result:</h2>
-          <div className="resultMessage">
-            <div className="result" hidden={result !== "win"}>Congrats!!! You Won!</div>
-            <div className="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
-          </div>
+          <h2>Result: {resultMsg}</h2> 
+
           <div className="imgbox">
-            <img id="myImg" src={defaultImage} style={{ display: flip !== "" ? "none" : "block" }} alt="thumb flipping coin into air" />
-            <img id="myImg" src={headsImage} style={{ display: flip !== "heads" ? "none" : "block" }} alt="face of gold coin" />
-            <img id="myImg" src={tailsImage} style={{ display: flip !== "tails" ? "none" : "block" }} alt="tails of gold coin" />
+            <img id="defaultImg" src={defaultImage} style={{ display: flip !== "" ? "none" : "block" }} alt="thumb flipping coin into air" />
+            <img id="headsImg" src={headsImage} style={{ display: flip !== "heads" ? "none" : "block" }} alt="face of gold coin" />
+            <img id="tailsImg" src={tailsImage} style={{ display: flip !== "tails" ? "none" : "block" }} alt="tails of gold coin" />
           </div>
         </section>
         <section>
