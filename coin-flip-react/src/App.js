@@ -6,19 +6,27 @@ import { useState } from "react";
 function App() {
 
   const [side, setSide] = useState("");
+  const [score, setScore] = useState(0);
+  const [errorHidden, setErrorHidden] = useState(true);
 
   function onClickButton(event) {
     event.preventDefault();
+    if (side === "") {
+      setErrorHidden(false);
+      return;
+    }
 
-    console.log("clicked");
-    console.log(side);
+    setErrorHidden(true);
+
+
   }
 
   function onResetClick(event) {
     event.preventDefault();
-
     setSide("");
+    setErrorHidden(true);
   }
+
 
   return (
     <div>
@@ -34,7 +42,7 @@ function App() {
         <section>
           <h2>Your Guess:</h2>
           <form id="form">
-            <div class="error"></div>
+            <div class="error" hidden={errorHidden}>*Please choose either Heads or Tails to start the game.</div>
 
             <div>
               <input id="heads" name="coin" type="radio" checked={side === "heads"} onChange={() => setSide("heads")}></input>
