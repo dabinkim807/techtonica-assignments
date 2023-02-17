@@ -8,7 +8,10 @@ function App() {
     console.log(side);
   }
 
-
+  function onClickButton(event) {
+    event.preventDefault();
+    console.log("clicked");
+  }
 
   return (
     <div>
@@ -35,7 +38,7 @@ function App() {
             </div>
 
             <div>
-              <button type="submit" id="flip">Flip</button>
+              <button type="submit" onClick={onClickButton} id="flip">Flip</button>
               <button type="reset" id="try-again">Try Again</button>
             </div>
           </form>
