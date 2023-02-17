@@ -1,5 +1,7 @@
 import './App.css';
 import defaultImage from "./images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
+import tailsImage from "./images/tails_coin_crop_border.jpg";
+import headsImage from "./images/head_coin_crop_border.jpg";
 import { useState } from "react";
 
 
@@ -10,6 +12,7 @@ function App() {
   const [scoreLose, setScoreLose] = useState(0);
   const [errorHidden, setErrorHidden] = useState(true);
   const [result, setResult] = useState("");
+  const [flip, setFlip] = useState("");
 
   function onClickButton(event) {
     event.preventDefault();
@@ -20,8 +23,10 @@ function App() {
 
     setErrorHidden(true);
 
-    let flip = Math.random() > 0.5 ? "heads" : "tails";
-    if (side === flip) {
+    const coinFlip = Math.random() > 0.5 ? "heads" : "tails";
+    setFlip(coinFlip);
+
+    if (side === coinFlip) {
       setResult("win");
       setScoreWin(scoreWin + 1);
     } else {
@@ -37,6 +42,7 @@ function App() {
     setResult("");
     setScoreWin(0);
     setScoreLose(0);
+    setFlip("");
   }
 
 
@@ -51,7 +57,9 @@ function App() {
             <div class="result" hidden={result !== "lose"}>Oh No!!! You Lost...</div>
           </div>
           <div class="imgbox">
-            <img id="myImg" src={defaultImage} alt="thumb flipping coin into air" />
+            <img id="myImg" src={defaultImage} hidden={flip !== ""} alt="thumb flipping coin into air" />
+            <img id="myImg" src={headsImage} hidden={flip !== "heads"} alt="thumb flipping coin into air" />
+            <img id="myImg" src={tailsImage} hidden={flip !== "tails"} alt="thumb flipping coin into air" />
           </div>
         </section>
         <section>
