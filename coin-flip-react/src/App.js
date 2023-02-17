@@ -7,15 +7,17 @@ function App() {
 
   const [side, setSide] = useState("");
 
-  function onChangeValue(side) {
-    setSide(side);
-  }
-
   function onClickButton(event) {
     event.preventDefault();
 
     console.log("clicked");
     console.log(side);
+  }
+
+  function onResetClick(event) {
+    event.preventDefault();
+
+    setSide("");
   }
 
   return (
@@ -35,16 +37,16 @@ function App() {
             <div class="error"></div>
 
             <div>
-              <input id="heads" name="coin" type="radio" onChange={() => onChangeValue("heads")}></input>
+              <input id="heads" name="coin" type="radio" checked={side === "heads"} onChange={() => setSide("heads")}></input>
               <label for="heads" class="radio-left">Heads</label>
 
-              <input id="tails" name="coin" type="radio" onChange={() => onChangeValue("tails")}></input>
+              <input id="tails" name="coin" type="radio" checked={side === "tails"} onChange={() => setSide("tails")}></input>
               <label for="tails" class="radio-left">Tails</label>
             </div>
 
             <div>
               <button type="submit" onClick={onClickButton} id="flip">Flip</button>
-              <button type="reset" id="try-again">Try Again</button>
+              <button type="reset" id="try-again" onClick={onResetClick}>Try Again</button>
             </div>
           </form>
         </section>
