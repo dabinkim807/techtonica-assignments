@@ -1,4 +1,5 @@
 import './App.css';
+import defaultImage from "./images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
           <h2>Result:</h2>
           <div class="resultMessage"></div>
           <div class="imgbox">
-            <img id="myImg" src="images/depositphotos_125165712-stock-illustration-businessman-hand-throwing-up-a.jpeg" alt="thumb flipping coin into air" />
+            <img id="myImg" src={defaultImage} alt="thumb flipping coin into air" />
           </div>
         </section>
         <section>
