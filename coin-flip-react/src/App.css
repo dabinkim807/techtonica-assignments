@@ -1,0 +1,156 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* end reset */
+
+
+
+/* --- Basic Display --- */
+
+body {
+  margin: 15%;
+  font-size: 120%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+}
+
+/* --- Main Content --- */
+
+.row {
+  display: flex;
+	flex-direction: row;
+  column-gap: 0;
+}
+.row > section {
+	flex-direction: column;
+	margin: 10px;
+  width: 50%;
+}
+h1 {
+  font-size: 250%;
+  margin: 80px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+h2 {
+  font-size: 180%;
+  margin: 20px;
+  font-weight: 300;
+}
+form {
+  margin: 50px 20px;
+  text-align: left;
+  border: solid lightgray 3px;
+  border-radius: 15px;
+  background-color: hsla(259, 0%, 0%, 0.05);
+  padding: 16px;
+}
+label {
+  margin: 10px;
+}
+form > div {
+  margin: 20px 10px;
+}
+.error {
+  font-size: 16px;
+  margin: 5px;
+}
+#flip {
+  margin-right: 30px;
+  padding: 10px 28px;
+}
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: solid lightgray 2px;
+  border-radius: 10px;
+}
+
+
+
+/* --- Scoreboard --- */
+
+.scoreboard {
+  border: solid lightgray 3px;
+  border-radius: 15px;
+  margin: 10px;
+}
+.scoreboard > h2 {
+  margin: 30px;
+}
+.scoreRow {
+  display: flex;
+	flex-direction: row;
+}
+.scoreRow > div {
+	flex-direction: column;
+	margin: 10px;
+  width: 50%;
+}
+span {
+  display: block;
+  margin: 20px 20px 50px 20px;
+  font-size: 160%;
+}
+
+
+/* --- Media --- */
+
+.imgbox {
+  width: 100%;
+  margin: 10px auto;
+}
+img {
+  width: 80%;
+  display: block;
+  margin: 50px auto;
+  border-radius: 15px;
+  border: solid lightgray 3px;
+}
