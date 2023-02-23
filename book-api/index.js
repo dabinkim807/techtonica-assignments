@@ -34,7 +34,7 @@ app.get('/api/books/:bookID', cors(), async (req, res) => {
   }
 
   // if there's no book with that ID,
-  res.send('no books');
+  res.send("book does not exist");
 })
 
 
@@ -70,20 +70,22 @@ app.put('/api/books/:bookID', (req, res) => {
 
 // ** DELETE request **
 app.delete('/api/books/:bookID', (req, res) => {
-  let requestedBook = req.params.bookID;
-  console.log(requestedBook);
-  try {
-    for (let i = 0; i < books.length; i++) {
-      if (books[i].isbn === requestedBook) {
-        // books.splice(books[i], 1);
-        console.log("delete");
-      }
-    }
-  } catch (error) {
-    console.log(error);
-    res.send("failed");
+  
+  let deletedBook = req.params.bookID;
+
+  if (res.statusCode === 200) {
+    res.send("deleted book");
+  } else {
+    res.send(`Book with ISBN #${deletedBook} could not be deleted.`);
+    console.log(res.statusCode);
   }
-  res.send("done");
+
+
+  // console.log(deletedBook);
+
+  // console.log(res.statusCode);
+
+  // res.send("deleted book");
 })
 
 
