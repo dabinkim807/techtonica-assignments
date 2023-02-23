@@ -55,6 +55,7 @@ app.post('/api/books', (req, res) => {
 // ** PUT request - update existing book **
 app.put('/api/books/:bookID', (req, res) => {
   let requestedBook = req.params.bookID;
+
   for (let book of books) {
     if (book.isbn === requestedBook) {
       book.author = req.body.author;
@@ -66,6 +67,24 @@ app.put('/api/books/:bookID', (req, res) => {
   res.send("updated book");
 })
 
+
+// ** DELETE request **
+app.delete('/api/books/:bookID', (req, res) => {
+  let requestedBook = req.params.bookID;
+  console.log(requestedBook);
+  try {
+    for (let i = 0; i < books.length; i++) {
+      if (books[i].isbn === requestedBook) {
+        // books.splice(books[i], 1);
+        console.log("delete");
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    res.send("failed");
+  }
+  res.send("done");
+})
 
 
 
