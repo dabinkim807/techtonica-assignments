@@ -29,12 +29,13 @@ app.get('/api/books/:bookID', cors(), async (req, res) => {
   // The response
   for (let book of books) {
     if (book.isbn === requestedBook) {
-      res.json(book);
+      return res.json(book);
     }
   }
 
+  // when you have multiple res messages, or whenever you do res.send(), always return!!!
   // if there's no book with that ID,
-  res.send("book does not exist");
+  return res.send("Book does not exist.");
 })
 
 
@@ -48,7 +49,7 @@ app.post('/api/books', (req, res) => {
   };
   books.push(newBook);
 
-  res.send("saved new book");
+  return res.send("New book has been saved!");
 })
 
 
@@ -64,28 +65,22 @@ app.put('/api/books/:bookID', (req, res) => {
     }
   }
 
-  res.send("updated book");
+  return res.send("Book has been successfully updated.");
 })
 
 
 // ** DELETE request **
 app.delete('/api/books/:bookID', (req, res) => {
-  
-  let deletedBook = req.params.bookID;
 
-  if (res.statusCode === 200) {
-    res.send("deleted book");
-  } else {
-    res.send(`Book with ISBN #${deletedBook} could not be deleted.`);
-    console.log(res.statusCode);
+  let deletedBook = req.params.bookID;
+  console.log("deleting " + deletedBook);
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].isbn === deletedBook) {
+      books.splice(i, 1);
+    }
   }
 
-
-  // console.log(deletedBook);
-
-  // console.log(res.statusCode);
-
-  // res.send("deleted book");
+  return res.send("Book has been successfully deleted.");
 })
 
 
