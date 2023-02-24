@@ -9,13 +9,12 @@ app.use(cors());
 // middleware that enables express to read JSON; when you make a request that uses Content-Type = application/json, this middleware parses that request
 app.use(express.json());
 
+// to render static files from the client folder
+app.use(express.static('client'));
+
 
 // ** GET requests **
 
-// returns homepage
-app.get('/', (req, res) => {
-  res.json("Hello! This is my server!");
-})
 // returns all books in inventory
 app.get('/api/books', (req, res) => {
   res.json(books);
@@ -83,5 +82,13 @@ app.delete('/api/books/:bookID', (req, res) => {
 })
 
 
+//creates a route `/` that is the homepage
+app.get('/', (req, res) => {
+  //testing that was working
+  //res.send("Hello, welcome to Dana's Library!");
+
+  //this send the response to open the index.html in that directory
+  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+});
 
 app.listen(PORT, () => console.log(`Hello! Server is running on port ${PORT}`));
