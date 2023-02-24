@@ -24,7 +24,6 @@ app.get('/api/books', (req, res) => {
 app.get('/api/books/:bookID', cors(), async (req, res) => {
   // The request
   let requestedBook = req.params.bookID;
-  console.log(requestedBook);
 
   // The response
   for (let book of books) {
