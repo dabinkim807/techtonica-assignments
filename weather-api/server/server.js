@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 // creates an endpoint for the route "/api/weather"
-app.get('/weather', (req, res) => {
+app.get('/api/weather', (req, res) => {
   console.log(dataWeather);
   res.json(dataWeather);
 })
