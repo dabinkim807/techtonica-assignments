@@ -42,4 +42,6 @@ const weatherAstoria = {
   "name": "Astoria",
   "cod": 200
 
-}
+};
+
+module.exports = weatherAstoria;
