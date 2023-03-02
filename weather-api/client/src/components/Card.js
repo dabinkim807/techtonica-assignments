@@ -8,7 +8,7 @@ const Card = (props) => {
         src={"http://openweathermap.org/img/wn/" + props.icon + "@4x.png"}
         alt={props.description}
       />
-      <div className="card-body">
+      <div>
         <h3>{props.city}</h3>
         <p>{props.description}</p>
         <p>High {props.tempMax}&deg;F Low {props.tempMin}&deg;F</p>

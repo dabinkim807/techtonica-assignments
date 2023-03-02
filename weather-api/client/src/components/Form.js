@@ -9,7 +9,7 @@ const Form = (props) => {
   // must be paired with onClick or onChange; function will not display by itself
   // function to fetch data from express to get hardcoded data
   const getWeatherByLocation = () => {
-    fetch("http://localhost:8080/api/weather")
+    fetch(`http://localhost:8080/api/weather?cityName=${city}`) // cityName and other params defined in server.js
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -17,9 +17,10 @@ const Form = (props) => {
       });
   }
 
-  function convertTemp(kelvins) {
-    return Math.round(((kelvins - 273.15) * 9) / 5 + 32);
-  }
+  // convert kelvins to fahrenheit w/ hardcoded data
+  // function convertTemp(kelvins) {
+  //   return Math.round(((kelvins - 273.15) * 9) / 5 + 32);
+  // }
 
   return (
     <>
@@ -47,9 +48,12 @@ const Form = (props) => {
           icon={data.weather[0].icon}
           description={data.weather[0].description}
           city={data.name}
-          tempMax={convertTemp(data.main.temp_max)}
-          tempMin={convertTemp(data.main.temp_min)}
-          feelsLike={convertTemp(data.main.feels_like)}
+          tempMax={data.main.temp_max}
+          // tempMax={convertTemp(data.main.temp_max)}
+          tempMin={data.main.temp_min}
+          // tempMin={convertTemp(data.main.temp_min)}
+          feelsLike={data.main.feels_like}
+          // feelsLike={convertTemp(data.main.feels_like)}
           pressure={data.main.pressure}
           humidity={data.main.humidity}
         />
