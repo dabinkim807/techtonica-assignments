@@ -22,36 +22,25 @@ const Form = (props) => {
 
   return (
     <>
-      <nav className="container">
-        <div className="row align-items-center py-2">
-          <div className="input-group col-sm">
-            <span className="input-group-text" id="basic-addon1">
-              City
-            </span>
-            <input
-              type="text"
-              className="form-control"
-              inputMode="text"
-              id="city"
-              placeholder="city"
-              aria-label="city"
-              aria-describedby="basic-addon1"
-              onChange={(event) => setCity(event.target.value)}
-            />
-          </div>
-        </div>
-        <div className="row align-items-center py-2">
-          <div className="col-auto me-auto">
-            <button
-              id="btnGet"
-              type="button"
-              className="btn btn-primary mb-3"
-              onClick={getWeatherByLocation}>
-              Get Weather
-            </button>
-          </div>
-        </div>
-      </nav>
+      <div>
+        <input
+          type="text"
+          className="form"
+          id="city"
+          placeholder="City"
+          onChange={(event) => setCity(event.target.value)}
+        />
+      </div>
+
+      <div>
+        <button
+          id="button"
+          type="button"
+          onClick={getWeatherByLocation}>
+          Get Weather
+        </button>
+      </div>
+
       {data ? (
         <Card
           icon={data.weather[0].icon}
