@@ -25,17 +25,14 @@ const Form = (props) => {
 
   return (
     <>
-      <div>
+      <div className="form">
         <input
           type="text"
-          className="form"
           id="city"
-          placeholder="City"
+          placeholder="Type in a city name"
           onChange={(event) => setCity(event.target.value)}
         />
-      </div>
 
-      <div>
         <button
           id="button"
           type="button"
@@ -61,7 +58,7 @@ const Form = (props) => {
           humidity={data.main.humidity}
         />
       ) : (
-        <div>No Data</div>
+        <div className="empty"></div>
       )}
     </>
   );

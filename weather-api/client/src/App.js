@@ -5,9 +5,9 @@ import Form from "./components/Form";
 function App() {
 
   return (
-    <div>
+    <div className="App">
       <header>
-        <h1>Dana's OpenWeatherMap.org API</h1>
+        <h1>weather API</h1>
       </header>
       <Form />
     </div>
