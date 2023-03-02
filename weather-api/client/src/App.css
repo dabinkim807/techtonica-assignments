@@ -88,7 +88,11 @@ body {
 
 /* --- Media --- */
 
-
+.icon {
+  background-color: none;
+  border: none;
+  
+}
 
 /* --- Media Queries --- */
 
