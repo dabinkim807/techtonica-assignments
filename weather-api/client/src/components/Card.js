@@ -11,10 +11,10 @@ const Card = (props) => {
       <div className="container">
         <h3>{props.city}</h3>
         <p>{props.description}</p>
-        <p>High {props.tempMax}&deg;F Low {props.tempMin}&deg;F</p>
-        <p>Feels like {props.feelsLike}&deg;F</p>
-        <p>Pressure {props.pressure}mb</p>
-        <p>Humidity {props.humidity}%</p>
+        <p>High {props.tempMax}&deg;F  |  Low {props.tempMin}&deg;F</p>
+        <p>Feels like: {props.feelsLike}&deg;F</p>
+        <p>Pressure: {props.pressure}mb</p>
+        <p>Humidity: {props.humidity}%</p>
       </div>
     </div>
   );
