@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Card from "./Card";
-import { IconButton } from '@chakra-ui/react';
 import { FaSearch } from "react-icons/fa";
 
 
@@ -37,13 +36,14 @@ const Form = (props) => {
       </div>
 
       <div>
-        <IconButton
+        <button
           id="button"
           type="button"
           className="icon"
           onClick={getWeatherByLocation}
-          icon={<FaSearch />}
-        />
+          aria-label="Search">
+          <FaSearch />
+        </button>
       </div>
 
       {data ? (
