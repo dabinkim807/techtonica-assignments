@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Card from "./Card";
+import { FaSearch } from "react-icons/fa";
 
 
 const Form = (props) => {
@@ -39,7 +40,7 @@ const Form = (props) => {
           id="button"
           type="button"
           onClick={getWeatherByLocation}>
-          Get Weather
+          <FaSearch />
         </button>
       </div>
 
