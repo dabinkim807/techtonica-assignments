@@ -3,11 +3,11 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import fetch from 'node-fetch';
 
-// For testing my API I saving one response in a .js file 
-import fakedata  from './fakedata.js';
+// hardcoded data
+import musicalTheatre from './musicalTheatre.js';
 
 const app = express();
-const PORT = 5000;
+const PORT = 8000;
 
 // Configuring cors middleware
 app.use(cors());
@@ -18,17 +18,39 @@ app.use(bodyParser.json());
 
 // //creates an endpoint for the route `/`
 app.get("/", (req, res) => {
-    res.json("Hello Techtonica Server for a Game");
-  });
-
-// Make the GET request for the GAME Api for grabbing all the questions 
+  res.json("Hello! This is Dana's trivia game server");
+});
 
 
-  // //hardcode the game response for testing reasons to don't saturate my API call. 
-app.get('/api/game', (req, res) =>{
-    res.json(fakedata);
+// Make the GET request to grab all the questions for the trivia api
+
+// try async await catch method
+// hardcoded method
+app.get('/api/game', async (req, res) =>{
+  // try {
+  //   const URL = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";
+  //   const apiRequest = await fetch(URL);
+  //   const questions = await apiRequest.json();
+  //   res.send(questions);
+  // } catch(err) {
+  //   console.log(err);
+  // }
+  res.json(musicalTheatre);
 })
 
+// fetch then then catch method
+// app.get('/api/game', (req, res) =>{
+//   const url = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";  
+//   fetch(url)
+//   .then((res) => res.json())
+//   .then((data) => {
+//     res.send(data); 
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+// })
 
 
-app.listen(PORT, () => console.log(`Hola! Server running on Port http://localhost:${PORT}`));
+
+app.listen(PORT, () => console.log(`Hello! Server is running on Port http://localhost:${PORT}`));
