@@ -1,6 +1,6 @@
 import Question from "./question"
 import Answer from "./answer"
-import { useState } from "react";
+// import { useState } from "react";
 
 const QuestionCard = (props) => {
   // questionSet={totalQuestions[currentQAndA]}

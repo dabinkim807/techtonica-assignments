@@ -15,9 +15,14 @@ const Game = () => {
             })
     }
 
-    const handleUserClicked = (userClicked) => {
+    const handleUserClicked = (selectedAnswer) => {
         // Answer Component will only send data back if userClicked === true
-        setCurrentQAndA(currentQAndA++);
+        console.log(selectedAnswer);
+
+        if (currentQAndA + 1 < totalQuestions.length) {
+            setCurrentQAndA(currentQAndA + 1);
+        }
+        
     }
 
     useEffect(() => {

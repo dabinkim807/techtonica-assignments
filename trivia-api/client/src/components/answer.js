@@ -6,12 +6,11 @@ const Answer = (props) => {
   let answer = props.answer;
   // let handleUserClicked = props.onClick;
 
-  const [ userClicked, setUserClicked ] = useState(false);
 
   const handleClick = (event) => {
     event.preventDefault();
-    setUserClicked(true);
-    props.onClick(userClicked);
+    console.log(answer);
+    props.onClick(answer);
   }
 
   return (
