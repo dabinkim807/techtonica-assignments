@@ -65,7 +65,7 @@ const Game = () => {
     return (
         <div className="Container">
             {totalQuestions.length > 0 && !userAnswer ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : <></>}
-            {userAnswer ? <ResultCard /> : <></>}
+            {validated ? <ResultCard result={validated} /> : <></>}
         </div>
     )
 
