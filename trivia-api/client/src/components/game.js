@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "./questioncard";
+import ResultCard from "./resultCard";
 
 const Game = () => {
 
@@ -34,13 +35,18 @@ const Game = () => {
             setCurrentQAndA(currentQAndA + 1);
         } // otherwise, display some final result card
         
+        sendUserAnswer(selectedAnswer);
+
     }
 
     // call server and send data to validate
     const sendUserAnswer = (userAnswer) => {
         fetch(`http://localhost:8000/api/validate`, {
             method: "POST",
-            body: { question: totalQuestions[currentQAndA].question, answer: userAnswer }
+            headers: {
+                "Content-type": "application/JSON"
+            },
+            body: JSON.stringify({ question: totalQuestions[currentQAndA].question, answer: userAnswer })
         }) 
           .then((response) => response.json())
           .then((result) => {
@@ -58,7 +64,8 @@ const Game = () => {
 
     return (
         <div className="Container">
-            {totalQuestions.length > 0 ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : <></>}
+            {totalQuestions.length > 0 && !userAnswer ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : <></>}
+            {userAnswer ? <ResultCard /> : <></>}
         </div>
     )
 

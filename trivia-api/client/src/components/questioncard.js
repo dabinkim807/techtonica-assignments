@@ -24,8 +24,6 @@ const QuestionCard = (props) => {
         return <Answer key={index} answer={answer} getUserAnswer={handleUserAnswer} />
       })}
 
-      <button onClick={props.getUserAnswer}>Next</button>
-
     </div>
   );
 };
