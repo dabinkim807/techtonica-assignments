@@ -4,6 +4,7 @@ import QuestionCard from "./questioncard";
 const Game = (props) => {
 
     const [questions, setQuestions] = useState([]);
+    const [ atQ, setAtQ ] = useState(0);
 
     const loadData = () => {
         fetch('http://localhost:8000/api/game')
@@ -20,15 +21,7 @@ const Game = (props) => {
 
     return (
         <div className="Container">
-            <div className='question-count'>
-                {/* question # should be a STATE in my Progress component */}
-                <span>Question 1</span>/{questions.length}
-            </div>
-            {/* whenever you have a list of components, you need to send in a unique "key" prop */}
-            {/* you don't have to do anything with it, but React needs it */}
-            {questions.map((question, index) => {
-                return <QuestionCard key={index} question={question} />
-            })}
+            {questions.length > 0 ? <QuestionCard question={questions[atQ]} /> : <></>}
         </div>
     )
 
