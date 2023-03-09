@@ -5,6 +5,8 @@ const Game = () => {
 
     const [ totalQuestions, setTotalQuestions ] = useState([]);
     const [ currentQAndA, setCurrentQAndA ] = useState(0);
+
+    const [ userAnswer, setUserAnswer ] = useState();
     const [ validated, setValidated ] = useState();
 
     const loadData = () => {
@@ -21,27 +23,33 @@ const Game = () => {
     }, [])
 
     const handleUserAnswer = (selectedAnswer) => {
-        console.log(selectedAnswer);
+        // console.log(selectedAnswer);
         console.log(totalQuestions[currentQAndA].question);
+
+        setUserAnswer(selectedAnswer);
+        console.log(userAnswer);
+
+        // if there are more questions left in totalQuestions, go on to the next question
         if (currentQAndA + 1 < totalQuestions.length) {
             setCurrentQAndA(currentQAndA + 1);
-        }
+        } // otherwise, display some final result card
         
-        // call server and send data to validate
-        const sendUserAnswer = (selectedAnswer) => {
-            fetch(`http://localhost:8000/api/validate`, {
-                method: "POST",
-                body: { question: totalQuestions[currentQAndA].question, answer: selectedAnswer }
-            }) 
-              .then((response) => response.json())
-              .then((result) => {
-                console.log(result);
-                setValidated(result);
-              });
-          }
     }
 
-    
+    // call server and send data to validate
+    const sendUserAnswer = (userAnswer) => {
+        fetch(`http://localhost:8000/api/validate`, {
+            method: "POST",
+            body: { question: totalQuestions[currentQAndA].question, answer: userAnswer }
+        }) 
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            setValidated(result);
+          });
+      }
+
+
 
     // setCurrentQAndA based on user selected answer choice via onClick
     // send a callback prop into QuestionCard
