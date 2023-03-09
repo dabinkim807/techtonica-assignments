@@ -16,6 +16,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const answerKey = {};
+
 // //creates an endpoint for the route `/`
 app.get("/", (req, res) => {
   res.json("Hello! This is Dana's trivia game server");
@@ -35,6 +37,7 @@ app.get('/api/game', async (req, res) =>{
   // } catch(err) {
   //   console.log(err);
   // }
+  musicalTheatre["results"].forEach(res => answerKey[res["question"]] = res["correct_answer"]);
   res.json(musicalTheatre);
 })
 
@@ -51,6 +54,31 @@ app.get('/api/game', async (req, res) =>{
 //   });
 // })
 
+
+// validation route
+// checks user's answer with correct answer in backend, so user can't see correct answers in advance
+app.post('/api/validate', async (req, res) => {
+  // try {
+  //   const URL = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";
+  //   const apiRequest = await fetch(URL);
+  //   const questions = await apiRequest.json();
+  //   res.send(questions);
+  // } catch(err) {
+  //   console.log(err);
+  // }
+  let question = req.body.question;
+  let answer = req.body.answer;
+  let correctAnswer = answerKey[question];
+
+  let isCorrect = answer === correctAnswer;
+
+  let response = {
+    isCorrect: isCorrect,
+    correctAnswer: correctAnswer
+  }
+
+  return res.json(response);
+})
 
 
 app.listen(PORT, () => console.log(`Hello! Server is running on Port http://localhost:${PORT}`));
