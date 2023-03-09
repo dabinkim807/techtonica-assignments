@@ -37,8 +37,25 @@ app.get('/api/game', async (req, res) =>{
   // } catch(err) {
   //   console.log(err);
   // }
-  musicalTheatre["results"].forEach(res => answerKey[res["question"]] = res["correct_answer"]);
-  res.json(musicalTheatre);
+
+  // instead of returning entire musicalTheatre data, I want to only display questions and answers in random order so user can't cheat
+  const totalQuestions = []; // [ { question: 0, answer: 0 } ];
+
+  musicalTheatre.results.forEach((q) => {
+    // for post route validation, split for efficiency (so I only have to create this once)
+    answerKey[q.question] = q.correct_answer;
+
+    // combine correct answer with incorrect answers
+    // use splice and Math.random()
+    // musicalTheatre.results.length = 4; Math.random 0.1 - 0.9 -> 0.4 - 3.6 --> Math.floor 0 - 3
+    let randomIndex = Math.floor(Math.random() * q.incorrect_answers.length+1); 
+    let answers = q.incorrect_answers;
+    answers.splice(randomIndex, 0, q.correct_answer);
+
+    totalQuestions.push({ question: q.question, answers: answers })
+  })
+
+  res.json(totalQuestions);
 })
 
 // fetch then then catch method
