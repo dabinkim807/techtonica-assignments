@@ -10,19 +10,6 @@ const QuestionCard = (props) => {
 
   let handleUserClicked = props.onClick;
 
-  // const [ index, setIndex ] = useState(0);
-
-  // const distributeA = () => {
-  //   const nextIndex = index++;
-  //   setIndex(nextIndex);
-  //   return answers[index];
-  // }
-
-  // for (let i = 0; i < answers.length; i++) {
-  //   setAnswer(answers[i]);
-  // }
-
-  // console.log(question)
 
   return (
     <div className={"question-section"}>
@@ -33,14 +20,11 @@ const QuestionCard = (props) => {
       <Answer answer={answers[2]} onClick={handleUserClicked} />
       <Answer answer={answers[3]} onClick={handleUserClicked} /> */}
       
-      {/* <Answer answer={answers[index]} onClick={handleUserClicked} />
-      <Answer answer={distributeA} onClick={handleUserClicked} />
-      <Answer answer={distributeA} onClick={handleUserClicked} />
-      <Answer answer={distributeA} onClick={handleUserClicked} /> */}
-      
       {answers.map((answer, index) => {
         return <Answer key={index} answer={answer} onClick={handleUserClicked} />
       })}
+
+
     </div>
   );
 };

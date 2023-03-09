@@ -15,24 +15,27 @@ const Game = () => {
             })
     }
 
-    const handleUserClicked = (selectedAnswer) => {
-        // Answer Component will only send data back if userClicked === true
-        console.log(selectedAnswer);
-
-        if (currentQAndA + 1 < totalQuestions.length) {
-            setCurrentQAndA(currentQAndA + 1);
-        }
-        
-    }
-
     useEffect(() => {
         loadData();
     }, [])
 
+    const handleUserClicked = (selectedAnswer) => {
+        console.log(selectedAnswer);
+        console.log(totalQuestions[currentQAndA].question);
+        if (currentQAndA + 1 < totalQuestions.length) {
+            setCurrentQAndA(currentQAndA + 1);
+        }
+        
+        // call server and send data to validate
+
+    }
+
+    
+
     // setCurrentQAndA based on user selected answer choice via onClick
     // send a callback prop into QuestionCard
-        // QuestionCard will call callback, return data (user has selected an answer) back up to Game
-        // in Game, setCurrentQAndA() to currentQAndA++
+        // QuestionCard will call callback, return data (user's answer) back up to Game
+        // in Game, setCurrentQAndA() to currentQAndA + 1
 
     return (
         <div className="Container">
