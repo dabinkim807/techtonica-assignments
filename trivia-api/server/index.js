@@ -47,14 +47,16 @@ app.get('/api/game', async (req, res) =>{
 
     // combine correct answer with incorrect answers
     // use splice and Math.random()
+
+    // have to use slice because answers was modifying the actual data instead of copying, resulting in duplicates + more answer choices
+    let answers = q.incorrect_answers.slice();
     // musicalTheatre.results.length = 4; Math.random 0.1 - 0.9 -> 0.4 - 3.6 --> Math.floor 0 - 3
-    let randomIndex = Math.floor(Math.random() * q.incorrect_answers.length+1); 
-    let answers = q.incorrect_answers;
+    let randomIndex = Math.floor(Math.random() * answers.length+1); 
+  
     answers.splice(randomIndex, 0, q.correct_answer);
 
-    totalQuestions.push({ question: q.question, answers: answers })
+    totalQuestions.push({ question: q.question, answers: answers });
   })
-
   res.json(totalQuestions);
 })
 
