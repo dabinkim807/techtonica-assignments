@@ -1,27 +1,37 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "./questioncard";
 
-const Game = (props) => {
+const Game = () => {
 
-    const [questions, setQuestions] = useState([]);
-    const [ atQ, setAtQ ] = useState(0);
+    const [ totalQuestions, setTotalQuestions ] = useState([]);
+    const [ currentQAndA, setCurrentQAndA ] = useState(0);
 
     const loadData = () => {
         fetch('http://localhost:8000/api/game')
             .then((response) => response.json())
             .then(data => {
                 console.log("This is line 11", data);
-                setQuestions(data);
+                setTotalQuestions(data);
             })
+    }
+
+    const handleUserClicked = (userClicked) => {
+        // Answer Component will only send data back if userClicked === true
+        setCurrentQAndA(currentQAndA++);
     }
 
     useEffect(() => {
         loadData();
     }, [])
 
+    // setCurrentQAndA based on user selected answer choice via onClick
+    // send a callback prop into QuestionCard
+        // QuestionCard will call callback, return data (user has selected an answer) back up to Game
+        // in Game, setCurrentQAndA() to currentQAndA++
+
     return (
         <div className="Container">
-            {questions.length > 0 ? <QuestionCard question={questions[atQ]} /> : <></>}
+            {totalQuestions.length > 0 ? <QuestionCard questionSet={totalQuestions[currentQAndA]} onClick={handleUserClicked} /> : <></>}
         </div>
     )
 
