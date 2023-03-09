@@ -5,6 +5,7 @@ const Game = () => {
 
     const [ totalQuestions, setTotalQuestions ] = useState([]);
     const [ currentQAndA, setCurrentQAndA ] = useState(0);
+    const [ validated, setValidated ] = useState();
 
     const loadData = () => {
         fetch('http://localhost:8000/api/game')
@@ -19,7 +20,7 @@ const Game = () => {
         loadData();
     }, [])
 
-    const handleUserClicked = (selectedAnswer) => {
+    const handleUserAnswer = (selectedAnswer) => {
         console.log(selectedAnswer);
         console.log(totalQuestions[currentQAndA].question);
         if (currentQAndA + 1 < totalQuestions.length) {
@@ -27,7 +28,17 @@ const Game = () => {
         }
         
         // call server and send data to validate
-
+        const sendUserAnswer = (selectedAnswer) => {
+            fetch(`http://localhost:8000/api/validate`, {
+                method: "POST",
+                body: { question: totalQuestions[currentQAndA].question, answer: selectedAnswer }
+            }) 
+              .then((response) => response.json())
+              .then((result) => {
+                console.log(result);
+                setValidated(result);
+              });
+          }
     }
 
     
@@ -39,7 +50,7 @@ const Game = () => {
 
     return (
         <div className="Container">
-            {totalQuestions.length > 0 ? <QuestionCard questionSet={totalQuestions[currentQAndA]} onClick={handleUserClicked} /> : <></>}
+            {totalQuestions.length > 0 ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : <></>}
         </div>
     )
 

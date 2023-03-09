@@ -4,26 +4,27 @@ import Answer from "./answer"
 
 const QuestionCard = (props) => {
   // questionSet={totalQuestions[currentQAndA]}
-  // onClick={handleUserClicked}
+  // getUserAnswer={handleUserAnswer}
   let question = props.questionSet.question;
   let answers = props.questionSet.answers;
 
-  let handleUserClicked = props.onClick;
+  let handleUserAnswer = props.getUserAnswer;
 
-
+  
   return (
     <div className={"question-section"}>
       <Question question={question} />
 
-      {/* <Answer answer={answers[0]} onClick={handleUserClicked} />
-      <Answer answer={answers[1]} onClick={handleUserClicked} />
-      <Answer answer={answers[2]} onClick={handleUserClicked} />
-      <Answer answer={answers[3]} onClick={handleUserClicked} /> */}
+      {/* <Answer answer={answers[0]} getUserAnswer={handleUserAnswer} />
+      <Answer answer={answers[1]} getUserAnswer={handleUserAnswer} />
+      <Answer answer={answers[2]} getUserAnswer={handleUserAnswer} />
+      <Answer answer={answers[3]} getUserAnswer={handleUserAnswer} /> */}
       
       {answers.map((answer, index) => {
-        return <Answer key={index} answer={answer} onClick={handleUserClicked} />
+        return <Answer key={index} answer={answer} getUserAnswer={handleUserAnswer} />
       })}
 
+      <button onClick={props.getUserAnswer}>Next</button>
 
     </div>
   );

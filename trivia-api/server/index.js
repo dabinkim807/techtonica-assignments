@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 
-// Make the GET request to grab all the questions for the trivia api
+// *** Make the GET request to grab all the questions for the trivia api ***
 
 // try async await catch method
 // hardcoded method
@@ -76,6 +76,21 @@ app.get('/api/game', async (req, res) =>{
 
 // validation route
 // checks user's answer with correct answer in backend, so user can't see correct answers in advance
+app.get('/api/validate', async (req, res) => {
+  // try {
+  //   const URL = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";
+  //   const apiRequest = await fetch(URL);
+  //   const questions = await apiRequest.json();
+  //   res.send(questions);
+  // } catch(err) {
+  //   console.log(err);
+  // }
+  res.json("this is my validation")
+})
+
+
+// *** Make the POST request to grab user answer choice and validate ***
+
 app.post('/api/validate', async (req, res) => {
   // try {
   //   const URL = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";
@@ -85,6 +100,9 @@ app.post('/api/validate', async (req, res) => {
   // } catch(err) {
   //   console.log(err);
   // }
+
+
+  console.log(answerKey)
   let question = req.body.question;
   let answer = req.body.answer;
   let correctAnswer = answerKey[question];

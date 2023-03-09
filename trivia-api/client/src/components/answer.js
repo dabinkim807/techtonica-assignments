@@ -1,19 +1,19 @@
 const Answer = (props) => {
   // answer={answers}
-  // onClick={handleUserClicked}
+  // getUserAnswer={handleUserAnswer}
   let answer = props.answer;
-  // let handleUserClicked = props.onClick;
+  // let handleUserAnswer = props.getUserAnswer;
 
 
-  const handleClick = (event) => {
+  const handleAnswer = (event) => {
     event.preventDefault();
     console.log(answer);
-    props.onClick(answer);
+    props.getUserAnswer(answer);
   }
 
   return (
     <div className={"answer-section"}>
-      <button onClick={handleClick}>{answer}</button>
+      <button onClick={handleAnswer}>{answer}</button>
     </div>
   );
 };
