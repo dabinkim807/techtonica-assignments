@@ -14,7 +14,7 @@ const Game = () => {
         fetch('http://localhost:8000/api/game')
             .then((response) => response.json())
             .then(data => {
-                console.log("This is line 11", data);
+                // console.log("This is line 11", data);
                 setTotalQuestions(data);
             })
     }
@@ -64,8 +64,9 @@ const Game = () => {
 
     return (
         <div className="Container">
-            {totalQuestions.length > 0 && !userAnswer ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : <></>}
-            {validated ? <ResultCard result={validated} /> : <></>}
+            {/* for now, either the QuestionCard OR the ResultCard will be displayed */}
+            {/* final score card will be displayed at very end, need to factor that in */}
+            {validated ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : ResultCard}
         </div>
     )
 
