@@ -23,6 +23,7 @@ const Game = () => {
     }
 
     useEffect(() => {
+        console.log("once");
         loadData();
     }, [])
 

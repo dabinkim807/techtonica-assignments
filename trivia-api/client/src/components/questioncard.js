@@ -10,7 +10,6 @@ const QuestionCard = (props) => {
 
   let question = props.questionSet.question;
   let answers = props.questionSet.answers;
-
   let handleUserAnswer = props.getUserAnswer;
 
   
@@ -18,11 +17,6 @@ const QuestionCard = (props) => {
     <div className={"question-section"}>
       {props.progress}/{props.outOf}
       <Question question={question} />
-
-      {/* <Answer answer={answers[0]} getUserAnswer={handleUserAnswer} />
-      <Answer answer={answers[1]} getUserAnswer={handleUserAnswer} />
-      <Answer answer={answers[2]} getUserAnswer={handleUserAnswer} />
-      <Answer answer={answers[3]} getUserAnswer={handleUserAnswer} /> */}
       
       {answers.map((answer, index) => {
         return <Answer key={index} answer={answer} getUserAnswer={handleUserAnswer} />
