@@ -5,6 +5,9 @@ import Answer from "./answer"
 const QuestionCard = (props) => {
   // questionSet={totalQuestions[currentQAndA]}
   // getUserAnswer={handleUserAnswer}
+  // progress={currentQAndA+1} 
+  // outOf={totalQuestions.length}
+
   let question = props.questionSet.question;
   let answers = props.questionSet.answers;
 
@@ -13,6 +16,7 @@ const QuestionCard = (props) => {
   
   return (
     <div className={"question-section"}>
+      {props.progress}/{props.outOf}
       <Question question={question} />
 
       {/* <Answer answer={answers[0]} getUserAnswer={handleUserAnswer} />

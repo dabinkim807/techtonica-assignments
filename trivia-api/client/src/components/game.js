@@ -64,7 +64,7 @@ const Game = () => {
             return <Score score={score} outOf={totalQuestions.length} />
         }
         if (!validated) {
-            return <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} />
+            return <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} progress={currentQAndA+1} outOf={totalQuestions.length} />
         }
         return <ResultCard result={validated} changeQuestion={changeQuestion} />
     }
