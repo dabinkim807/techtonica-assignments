@@ -2,8 +2,6 @@ const Answer = (props) => {
   // answer={answers}
   // getUserAnswer={handleUserAnswer}
   let answer = props.answer;
-  // let handleUserAnswer = props.getUserAnswer;
-
 
   const handleAnswer = (event) => {
     event.preventDefault();

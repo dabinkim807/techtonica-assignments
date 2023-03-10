@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const Score = (props) => {
+const ScoreCard = (props) => {
   // score={score} outOf={totalQuestions.length}
   return (
     <div className="score">
@@ -10,4 +10,4 @@ const Score = (props) => {
   );
 }
 
-export default Score;
+export default ScoreCard;

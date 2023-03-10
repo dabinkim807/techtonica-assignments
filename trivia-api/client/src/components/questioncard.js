@@ -11,7 +11,6 @@ const QuestionCard = (props) => {
   let answers = props.questionSet.answers;
   let handleUserAnswer = props.getUserAnswer;
 
-  
   return (
     <div className={"question-section"}>
       {props.progress}/{props.outOf}
@@ -20,7 +19,6 @@ const QuestionCard = (props) => {
       {answers.map((answer, index) => {
         return <Answer key={index} answer={answer} getUserAnswer={handleUserAnswer} />
       })}
-
     </div>
   );
 };

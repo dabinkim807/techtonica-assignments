@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 const ResultCard = (props) => {
   // result={validated}
   // changeQuestion={changeQuestion}

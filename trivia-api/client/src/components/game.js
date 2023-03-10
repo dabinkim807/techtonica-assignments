@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "./questionCard";
 import ResultCard from "./resultCard";
-import Score from "./score";
+import ScoreCard from "./scoreCard";
 
 const Game = () => {
 
     const [totalQuestions, setTotalQuestions] = useState([]);
     const [currentQAndA, setCurrentQAndA] = useState(0);
-
     const [validated, setValidated] = useState();
-
-    const [ score, setScore ] = useState(0);
-
+    const [score, setScore] = useState(0);
 
     const loadData = () => {
         fetch('http://localhost:8000/api/game')
@@ -57,12 +54,13 @@ const Game = () => {
         setValidated(undefined);
     }
 
+    // order of ifs matters!!
     const toggleCards = () => {
         if (totalQuestions.length === 0) {
             return <></>
         }
         if (currentQAndA === totalQuestions.length) {
-            return <Score score={score} outOf={totalQuestions.length} />
+            return <ScoreCard score={score} outOf={totalQuestions.length} />
         }
         if (!validated) {
             return <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} progress={currentQAndA+1} outOf={totalQuestions.length} />
