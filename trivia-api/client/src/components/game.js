@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import QuestionCard from "./questioncard";
+import QuestionCard from "./questionCard";
 import ResultCard from "./resultCard";
 
 const Game = () => {
