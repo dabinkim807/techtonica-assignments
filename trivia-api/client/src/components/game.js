@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "./questionCard";
 import ResultCard from "./resultCard";
+import Score from "./score";
 
 const Game = () => {
 
@@ -8,6 +9,9 @@ const Game = () => {
     const [currentQAndA, setCurrentQAndA] = useState(0);
 
     const [validated, setValidated] = useState();
+
+    const [ score, setScore ] = useState(0);
+
 
     const loadData = () => {
         fetch('http://localhost:8000/api/game')
@@ -38,6 +42,11 @@ const Game = () => {
             .then((result) => {
                 console.log(result);
                 setValidated(result);
+
+                if (result.isCorrect) {
+                    setScore(score + 1);
+                }
+
             });
     }
 
@@ -47,15 +56,22 @@ const Game = () => {
         setValidated(undefined);
     }
 
+    const toggleCards = () => {
+        if (totalQuestions.length === 0) {
+            return <></>
+        }
+        if (currentQAndA === totalQuestions.length) {
+            return <Score score={score} outOf={totalQuestions.length} />
+        }
+        if (!validated) {
+            return <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} />
+        }
+        return <ResultCard result={validated} changeQuestion={changeQuestion} />
+    }
 
     return (
         <div className="Container">
-            {/* for now, either the QuestionCard OR the ResultCard will be displayed */}
-            {/* final score card will be displayed at very end, need to factor that in */}
-            {totalQuestions.length > 0 ?
-                (!validated ? <QuestionCard questionSet={totalQuestions[currentQAndA]} getUserAnswer={handleUserAnswer} /> : <ResultCard result={validated} changeQuestion={changeQuestion} />)
-                : <></>
-            }
+            {toggleCards()}
         </div>
     )
 

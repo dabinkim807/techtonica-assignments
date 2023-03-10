@@ -60,37 +60,10 @@ app.get('/api/game', async (req, res) =>{
   res.json(totalQuestions);
 })
 
-// fetch then then catch method
-// app.get('/api/game', (req, res) =>{
-//   const url = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";  
-//   fetch(url)
-//   .then((res) => res.json())
-//   .then((data) => {
-//     res.send(data); 
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-// })
-
-
-// validation route
-// checks user's answer with correct answer in backend, so user can't see correct answers in advance
-app.get('/api/validate', async (req, res) => {
-  // try {
-  //   const URL = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";
-  //   const apiRequest = await fetch(URL);
-  //   const questions = await apiRequest.json();
-  //   res.send(questions);
-  // } catch(err) {
-  //   console.log(err);
-  // }
-  res.json("this is my validation")
-})
-
 
 // *** Make the POST request to grab user answer choice and validate ***
 
+// checks user's answer with correct answer in backend, so user can't see correct answers in advance
 app.post('/api/validate', async (req, res) => {
   // try {
   //   const URL = "https://opentdb.com/api.php?amount=4&category=13&difficulty=medium&type=multiple";
