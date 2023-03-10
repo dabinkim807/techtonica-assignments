@@ -1,7 +1,5 @@
 const Question = (props) => {
-  let question = props.question.question;
-
-  console.log(question)
+  // console.log(question)
 
   return (
     <div className={"question-text"}>

@@ -7,7 +7,7 @@ const Answer = (props) => {
 
   const handleAnswer = (event) => {
     event.preventDefault();
-    console.log(answer);
+    // console.log(answer);
     props.getUserAnswer(answer);
   }
 
