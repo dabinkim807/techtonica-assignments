@@ -1,9 +1,11 @@
+import {decode} from 'html-entities';
+
 const Question = (props) => {
   // console.log(question)
 
   return (
     <div className={"question-text"}>
-      {props.question}
+      {decode(props.question)}
     </div>
   );
 };

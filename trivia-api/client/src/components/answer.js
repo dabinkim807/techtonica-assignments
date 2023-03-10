@@ -1,3 +1,5 @@
+import {decode} from 'html-entities';
+
 const Answer = (props) => {
   // answer={answers}
   // getUserAnswer={handleUserAnswer}
@@ -11,7 +13,7 @@ const Answer = (props) => {
 
   return (
     <div className={"answer-section"}>
-      <button onClick={handleAnswer}>{answer}</button>
+      <button onClick={handleAnswer}>{decode(answer)}</button>
     </div>
   );
 };
