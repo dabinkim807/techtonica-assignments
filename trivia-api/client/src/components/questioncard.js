@@ -1,30 +1,24 @@
 import Question from "./question"
 import Answer from "./answer"
-// import { useState } from "react";
 
 const QuestionCard = (props) => {
   // questionSet={totalQuestions[currentQAndA]}
-  // onClick={handleUserClicked}
+  // getUserAnswer={handleUserAnswer}
+  // progress={currentQAndA+1} 
+  // outOf={totalQuestions.length}
+
   let question = props.questionSet.question;
   let answers = props.questionSet.answers;
-
-  let handleUserClicked = props.onClick;
-
+  let handleUserAnswer = props.getUserAnswer;
 
   return (
     <div className={"question-section"}>
+      {props.progress}/{props.outOf}
       <Question question={question} />
-
-      {/* <Answer answer={answers[0]} onClick={handleUserClicked} />
-      <Answer answer={answers[1]} onClick={handleUserClicked} />
-      <Answer answer={answers[2]} onClick={handleUserClicked} />
-      <Answer answer={answers[3]} onClick={handleUserClicked} /> */}
       
       {answers.map((answer, index) => {
-        return <Answer key={index} answer={answer} onClick={handleUserClicked} />
+        return <Answer key={index} answer={answer} getUserAnswer={handleUserAnswer} />
       })}
-
-
     </div>
   );
 };

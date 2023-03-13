@@ -1,19 +1,19 @@
+import {decode} from 'html-entities';
+
 const Answer = (props) => {
   // answer={answers}
-  // onClick={handleUserClicked}
+  // getUserAnswer={handleUserAnswer}
   let answer = props.answer;
-  // let handleUserClicked = props.onClick;
 
-
-  const handleClick = (event) => {
+  const handleAnswer = (event) => {
     event.preventDefault();
-    console.log(answer);
-    props.onClick(answer);
+    // console.log(answer);
+    props.getUserAnswer(answer);
   }
 
   return (
     <div className={"answer-section"}>
-      <button onClick={handleClick}>{answer}</button>
+      <button onClick={handleAnswer}>{decode(answer)}</button>
     </div>
   );
 };

@@ -1,11 +1,11 @@
-const Question = (props) => {
-  let question = props.question.question;
+import {decode} from 'html-entities';
 
-  console.log(question)
+const Question = (props) => {
+  // console.log(question)
 
   return (
     <div className={"question-text"}>
-      {props.question}
+      {decode(props.question)}
     </div>
   );
 };
